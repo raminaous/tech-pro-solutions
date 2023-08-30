@@ -1,0 +1,105 @@
+.service-body {
+  position: relative;
+  height: 100vh;
+  background-image: url("../Images/pexels-christina-morillo-1181675.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 10%;
+  left: 50%; /* Adjust this value to move the text to the left or right */
+  transform: translate(-50%, -50%);
+  text-align: center; /* Change this to "right" if you want the text to be aligned to the right */
+  color: white;
+  padding: 12rem;
+}
+
+.service-body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Adjust the last value (0.5) to control the darkness of the overlay */
+}
+
+.pricing {
+  display: flex;
+  position: absolute;
+  top: 8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 2rem;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  height: auto;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+  padding: 2rem;
+  margin: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.card-header {
+  margin: 1rem;
+  text-align: center;
+}
+
+.card-wrapper:hover .card-header > h2 {
+  transform: scale(1.1);
+  color: rgb(213, 97, 97);
+  letter-spacing: 2;
+}
+
+.card-header img {
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+.card-detail {
+  width: 100%;
+}
+
+.card-detail > p {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+}
+
+.card-detail > p:hover {
+  background-color: #d5d5d5;
+}
+
+@media (max-width: 576px) {
+  .service-body {
+    position: relative;
+    height: 200vh;
+    background-image: url("../Images/pexels-christina-morillo-1181675.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+}

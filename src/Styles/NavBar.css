@@ -35,6 +35,23 @@
 .header .nav-menu a {
   color: #ffffff;
   text-decoration: none;
+  position: relative;
+  font-size: 21px;
+}
+
+.header .nav-menu a::before {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.header .nav-menu a:hover::before {
+  width: 100%;
 }
 
 .header .navbar img {
@@ -97,6 +114,6 @@
   }
 
   .header .navbar img {
-    width: 150px;
+    width: 55px;
   }
 }

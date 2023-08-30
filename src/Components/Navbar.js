@@ -1,9 +1,18 @@
 import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { LiaTimesSolid } from "react-icons/lia";
+import { CiMenuFries } from "react-icons/ci";
 import logo from "../Images/Logo.png";
 import "../Styles/NavBar.css";
 
-const Navbar = () => {
+const Navbar = ({
+  links = [
+    { text: "About", url: "/" },
+    { text: "Our Services", url: "#services" },
+    { text: "Our Process", url: "#testimonials" },
+    { text: "Portfolio", url: "#demo" },
+    { text: "Contact Us", url: "#demo" },
+  ],
+}) => {
   // setting mobile nav
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -29,35 +38,22 @@ const Navbar = () => {
         <a href="/" className="logo">
           <img src={logo} alt="logo" />
         </a>
-        <p className="brand-text">Tech Pro Solutions</p>
+
         <div className="hamburger" onClick={handleClick}>
           {click ? (
-            <FaTimes size={30} style={{ color: "#ffffff" }} />
+            <LiaTimesSolid size={30} style={{ color: "#ffffff" }} />
           ) : (
-            <FaBars size={30} style={{ color: "#ffffff" }} />
+            <CiMenuFries size={30} style={{ color: "#ffffff" }} />
           )}
         </div>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
-          <li className="nav-item">
-            <a href="/" onClick={closeMenu}>
-              Who we are
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#about" onClick={closeMenu}>
-              About
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#testimonials" onClick={closeMenu}>
-              Testimonials
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#demo" onClick={closeMenu}>
-              Demo
-            </a>
-          </li>
+          {links.map((link, index) => (
+            <li className="nav-item" key={index}>
+              <a href={link.url} onClick={closeMenu}>
+                {link.text}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
     </div>
